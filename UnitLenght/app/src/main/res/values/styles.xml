@@ -1,0 +1,13 @@
+<!-- res/values/styles.xml -->
+<resources>
+    <style name="SpinnerStyle" parent="Widget.AppCompat.Spinner">
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="ButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">?attr/colorSecondary</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+</resources>

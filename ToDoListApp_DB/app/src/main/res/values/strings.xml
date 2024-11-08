@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ToDoListApp</string>
+
+    <string-array name="task_status_options">
+        <item>In progress</item>
+        <item>Review</item>
+        <item>Completed</item>
+    </string-array>
+
+</resources>

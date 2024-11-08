@@ -1,0 +1,17 @@
+<!-- res/values/strings.xml -->
+<resources>
+    <string name="app_name">LengthConverter</string>
+    <string name="input_hint">Enter value</string>
+    <string name="convert_button">Convert</string>
+    <string name="result">Result: %1$s %2$s</string>
+    <string-array name="units_array">
+        <item>Metre</item>
+        <item>Millimetre</item>
+        <item>Centimetre</item>
+        <item>Kilometre</item>
+        <item>Mile</item>
+        <item>Foot</item>
+        <item>Yard</item>
+        <item>Inch</item>
+    </string-array>
+</resources>
