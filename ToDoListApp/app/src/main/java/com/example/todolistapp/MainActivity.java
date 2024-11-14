@@ -3,6 +3,7 @@ package com.example.todolistapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,6 +38,27 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.OnIte
         });
     }
 
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        if (resultCode == RESULT_OK && data != null) {
+//            Task task = (Task) data.getSerializableExtra("task");
+//            int position = data.getIntExtra("position", -1);
+//
+//            if (requestCode == 1) { // Add Task
+//                taskList.add(task);
+//            } else if (requestCode == 2 && position >= 0) { // Edit/Delete Task
+//                if (data.getBooleanExtra("delete", false)) {
+//                    taskList.remove(position);
+//                } else {
+//                    taskList.set(position, task);
+//                }
+//            }
+//            adapter.notifyDataSetChanged();
+//        }
+//    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -47,16 +69,23 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.OnIte
 
             if (requestCode == 1) { // Add Task
                 taskList.add(task);
+                adapter.notifyDataSetChanged();
+                // Show toast for successful task addition
+                Toast.makeText(this, "You added new task successfully", Toast.LENGTH_SHORT).show();
             } else if (requestCode == 2 && position >= 0) { // Edit/Delete Task
                 if (data.getBooleanExtra("delete", false)) {
                     taskList.remove(position);
+                    adapter.notifyDataSetChanged();
                 } else {
                     taskList.set(position, task);
+                    adapter.notifyDataSetChanged();
+                    // Show toast for successful task update
+                    Toast.makeText(this, "You updated task successfully", Toast.LENGTH_SHORT).show();
                 }
             }
-            adapter.notifyDataSetChanged();
         }
     }
+
 
     @Override
     public void onItemClick(int position) {

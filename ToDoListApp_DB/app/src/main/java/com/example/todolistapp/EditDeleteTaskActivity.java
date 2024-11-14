@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class EditDeleteTaskActivity extends AppCompatActivity {
@@ -73,11 +76,31 @@ public class EditDeleteTaskActivity extends AppCompatActivity {
         finish();
     }
 
+//    private void deleteTask() {
+//        Intent intent = new Intent();
+//        intent.putExtra("position", position);
+//        intent.putExtra("delete", true);
+//        setResult(RESULT_OK, intent);
+//        finish();
+//    }
+
     private void deleteTask() {
-        Intent intent = new Intent();
-        intent.putExtra("position", position);
-        intent.putExtra("delete", true);
-        setResult(RESULT_OK, intent);
-        finish();
+        new AlertDialog.Builder(this)
+                .setTitle("Confirm Delete")
+                .setMessage("Are you sure you want to delete this task?")
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    Intent intent = new Intent();
+                    intent.putExtra("position", position);
+                    intent.putExtra("delete", true);
+                    setResult(RESULT_OK, intent);
+                    finish();
+                    // Show a toast after deleting
+                    Toast.makeText(this, "Task deleted successfully", Toast.LENGTH_SHORT).show();
+                })
+                .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
+                .create()
+                .show();
     }
+
+
 }

@@ -34,5 +34,6 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="16dp"
         android:src="@android:drawable/ic_input_add"
+        android:backgroundTint="#4CAF50"
         android:contentDescription="Add Task" />
 </RelativeLayout>
