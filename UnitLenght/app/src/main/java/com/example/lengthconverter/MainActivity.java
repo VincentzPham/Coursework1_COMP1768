@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Button convertButton;
     private TextView resultTextView;
     private RecyclerView historyRecyclerView;
-
+    private ImageButton deleteHistoryButton;
     // Adapters
     private ArrayAdapter<CharSequence> spinnerAdapter;
     private ConversionAdapter conversionAdapter;
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         convertButton = findViewById(R.id.convertButton);
         resultTextView = findViewById(R.id.resultTextView);
         historyRecyclerView = findViewById(R.id.historyRecyclerView);
+
+        ImageButton deleteHistoryButton = findViewById(R.id.deleteHistoryButton);
 
         // Set up Spinner Adapter
         spinnerAdapter = ArrayAdapter.createFromResource(this,
@@ -140,6 +143,22 @@ public class MainActivity extends AppCompatActivity {
                 conversionHistory.add(0, conversion); // Add to top of the list
                 conversionAdapter.notifyItemInserted(0);
                 historyRecyclerView.scrollToPosition(0); // Optional: Scroll to the top
+            }
+        });
+
+        // Handle Delete History Button click
+        // Handle Delete History Button click
+        deleteHistoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Clear the history list
+                conversionHistory.clear();
+
+                // Notify the adapter of data change
+                conversionAdapter.notifyDataSetChanged();
+
+                // Optionally, show a message
+                Toast.makeText(MainActivity.this, "Conversion history cleared", Toast.LENGTH_SHORT).show();
             }
         });
     }

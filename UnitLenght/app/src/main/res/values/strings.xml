@@ -14,4 +14,5 @@
         <item>Yard</item>
         <item>Inch</item>
     </string-array>
+    <string name="delete_history">Delete History</string>
 </resources>
