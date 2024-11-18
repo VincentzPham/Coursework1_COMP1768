@@ -1,11 +1,10 @@
-<!-- activity_edit_delete_task.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Same as AddTaskActivity Layout for editing -->
+    <!-- EditText Fields -->
     <EditText android:id="@+id/editTaskName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,15 +25,31 @@
         android:layout_height="wrap_content"
         android:hint="Description" />
 
-    <Button android:id="@+id/btnSaveEditTask"
-        android:layout_width="wrap_content"
+    <!-- Horizontal layout for buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#4CAF50"
-        android:text="Save Changes" />
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="8dp">
 
-    <Button android:id="@+id/btnDeleteTask"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#4CAF50"
-        android:text="Delete Task" />
+        <Button android:id="@+id/btnSaveEditTask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:backgroundTint="#4CAF50"
+            android:text="Save Changes" />
+
+        <Button android:id="@+id/btnDeleteTask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:backgroundTint="#4CAF50"
+            android:text="Delete Task" />
+    </LinearLayout>
+
 </LinearLayout>
